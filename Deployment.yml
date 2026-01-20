@@ -16,7 +16,7 @@ spec:
   spec:
     containers:
     - name: ecommstorecontainer
-      image: vinodses/ecomm_store
+      image: anchu72docker/ecomm_store:latest
       ports:
       - containerPort: 80
 ---
