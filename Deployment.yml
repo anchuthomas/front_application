@@ -2,33 +2,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: ecommstoreappdeployment
+  name: ecommerce-frontend
 spec:
- replicas: 1
- selector:
-   matchLabels:
-     app: ecommstore
- template:
-  metadata:
-   name: ecommstore
-   labels:
-     app: ecommstore
-  spec:
-    containers:
-    - name: ecommstorecontainer
-      image: anchu72docker/products:latest
-      ports:
-      - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-frontend
+  template:
+    metadata:
+      labels:
+        app: ecommerce-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: anchu72docker/ecomm-frontend:latest
+        ports:
+        - containerPort: 80
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: ecommstoresvc
+  name: ecommerce-frontend-svc
 spec:
   type: LoadBalancer
   selector:
-   app: ecommstore
+    app: ecommerce-frontend
   ports:
-   - port: 80
-     targetPort: 80
+  - port: 80
+    targetPort: 80
+
 ...
