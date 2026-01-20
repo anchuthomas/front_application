@@ -12,8 +12,6 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 
-RUN rm -rf /usr/share/nginx/html/*
-
-COPY --from=build /app/dist/ecommerce_frontend/browser/* /usr/share/nginx/html
+COPY --from=build /app/dist/vinodses_ecomm_store /usr/share/nginx/html
 
 EXPOSE 80
