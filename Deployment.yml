@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: anchu72docker/ecomm:latest
+        image: anchu72docker/ecomm_store:latest
         ports:
         - containerPort: 80
 
